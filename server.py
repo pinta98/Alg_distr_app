@@ -58,14 +58,14 @@ class Thing(object):
             #print("An exception occurred ::", e)
             return False 
 
-    def delete_msg(self, arg):  
+    def delete_msg(self, arg):
         try:           
-            user_collection.update_one({"username": arg[0]}, {"$unset": {"messaggi."+arg[1]: ""}})
+            user_collection.update_one({"username": arg[0]}, {"$pull": {"messaggi":{"data": arg[1]}}})
             return True
         except Exception as e:
             print("An exception occurred ::", e)
             return False     
-    
+        
     def matching_user(self, arg):     
         data = user_collection.find({"username": {"$regex":arg}})        
         return data  
@@ -102,15 +102,15 @@ class Thing(object):
         return msg
 
     def publish_msg(self, arg):
-        try:
-            user_collection.update_one({"username":arg[0]}, 
+        print(arg[0])
+        print(arg[1])
+        print(arg[2])
+
+        user_collection.update_one({"username":arg[0]}, 
                                        {"$push": {"messaggi": {"testo": arg[1], "data": arg[2], "user": arg[0]}}
                                             
                                         }) 
-            return True
-        except Exception as e:
-            #print("An exception occurred ::", e)
-            return False 
+        print("_________")
 
 '''
 # ------ normal code ------

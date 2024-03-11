@@ -8,9 +8,9 @@ account_data = None
 def profilo_utente(self, username):
     self.ui.dash.setCurrentWidget(self.ui.profilo)
     set_personal_data(self, username)
-    self.ui.profilo_dati_btn.clicked.connect(lambda: set_personal_data(self, username))
-    self.ui.mod_data_btn.clicked.connect(lambda: set_mod_data(self, username))
-    self.ui.el_sel_msg.clicked.connect(lambda: del_msg(self, username))
+    #self.ui.profilo_dati_btn.clicked.connect(lambda: set_personal_data(self, username))
+    #self.ui.mod_data_btn.clicked.connect(lambda: set_mod_data(self, username))
+    #self.ui.el_sel_msg.clicked.connect(lambda: del_msg(self, username))
      
 def show_popup_msg_delete(self):
         msg = QMessageBox() 
@@ -76,14 +76,20 @@ def del_msg(self, username):
     global account_data
     current_row = self.ui.personal_msg.currentRow()
     if (current_row > -1):
-        to_delete = len(account_data["messaggi"]) - current_row - 1
-        id_msg = []
-        i = len(account_data["messaggi"])   
-        for a in account_data["messaggi"].keys():
-            id_msg.append(a)          
+        
+        msg_to_order = []
+        for msg in account_data["messaggi"]:
+            msg_to_order.append(msg)
+            
+        list_ordered = sorted(msg_to_order, key=lambda x: datetime.strptime(x['data'], '%Y-%m-%d %H:%M:%S'), reverse = True)
+
+        for i in list_ordered:
+            self.ui.utente_msg_list.addItem(i["testo"] + "\n" + str(i["data"]))           
+        
         if(show_popup_msg_delete(self)):
             reg = Pyro5.client.Proxy("PYRONAME:mythingy")
-            success = reg.delete_msg([username, id_msg[to_delete], account_data["messaggi"][str(id_msg[to_delete])]["testo"]])
+            success = reg.delete_msg([username, list_ordered[current_row]["data"]])
+        
             if(success):
                 msg = QMessageBox() 
                 msg.setIcon(QMessageBox.Information)
@@ -99,7 +105,7 @@ def del_msg(self, username):
                 msg.setStandardButtons(QMessageBox.Ok)
                 msg.setStyleSheet("color:black;background:white") 
                 x = msg.exec_()
-                set_personal_data(self, username)     
+                set_personal_data(self, username)   
     else:
         msg = QMessageBox() 
         msg.setIcon(QMessageBox.Information)

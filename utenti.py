@@ -6,13 +6,12 @@ from datetime import datetime
 
 global username_data, user_visualized
 
-
 def set_utenti(self, username):
     self.ui.dash.setCurrentWidget(self.ui.seguiti)
     client_style.utenti_style(self)
     set_followed_user(self, username, None)
-    self.ui.cerca_btn.clicked.connect(lambda: search(self, username))
-    self.ui.follow_btn.clicked.connect(lambda: follow(self, username))
+    #self.ui.cerca_btn.clicked.connect(lambda: search(self, username))
+    #self.ui.follow_btn.clicked.connect(lambda: follow(self, username))
 
 def search(self, username):
     to_search = self.ui.ricerca_utente.text()

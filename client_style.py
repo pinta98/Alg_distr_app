@@ -39,6 +39,8 @@ def dashboard_style(self):
                            "QPushButton:pressed { background-color: grey }" )
     self.ui.seguiti_btn.setStyleSheet('QPushButton {background-color: white; color: black; border-radius: 10px; border: 1px solid black;}'
                            "QPushButton:pressed { background-color: grey }" )
+    self.ui.bacheca_btn.setStyleSheet('QPushButton {background-color: white; color: black; border-radius: 10px; border: 1px solid black; font-weight: bold;}'
+                           "QPushButton:pressed { background-color: grey }" )
     self.ui.logout_btn.setStyleSheet('QPushButton {background-color: white; color: black; border-radius: 10px; border: 1px solid black;}'
                            "QPushButton:pressed { background-color: grey }" )
 
@@ -50,7 +52,7 @@ def profilo_style(self):
     self.ui.data_mod.setStyleSheet("QLineEdit { border: 1px solid black}")
     self.ui.combo_mod_dati.setStyleSheet("QComboBox { background-color: white;}")
     
-    self.ui.personal_msg.setStyleSheet("QListWidget {border: 1px solid black; background: white; border-radius: 0px;} QListView::item {border : 1px solid black; background: white; color: black; height:100; width: 394;} QListView::item:selected {border : 1px solid red; border-radius: 10px; background: white; color: red;}")
+    self.ui.personal_msg.setStyleSheet("QListWidget {border: 1px solid black; background: white; border-radius: 0px;} QListView::item {border : 1px solid black; background: white; color: black; height:100; width: 394;} QListView::item:selected {border : 1px solid red; border-radius: 0px; background: white; color: red;}")
     self.ui.el_sel_msg.setStyleSheet('QPushButton {background-color: white; color: red; border-radius: 10px; border: 1px solid red;}'
                            "QPushButton:pressed { background-color: red; color: white; }" )
     
