@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1381</width>
-    <height>851</height>
+    <height>863</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -26,7 +26,7 @@
       <property name="maximumSize">
        <size>
         <width>1200</width>
-        <height>800</height>
+        <height>850</height>
        </size>
       </property>
       <property name="frameShape">
@@ -44,7 +44,7 @@
          <x>0</x>
          <y>0</y>
          <width>1200</width>
-         <height>791</height>
+         <height>821</height>
         </rect>
        </property>
        <property name="minimumSize">
@@ -56,7 +56,7 @@
        <property name="maximumSize">
         <size>
          <width>1200</width>
-         <height>800</height>
+         <height>850</height>
         </size>
        </property>
        <widget class="QWidget" name="login">
@@ -485,14 +485,14 @@
         <widget class="QStackedWidget" name="dash">
          <property name="geometry">
           <rect>
-           <x>140</x>
+           <x>130</x>
            <y>0</y>
-           <width>911</width>
-           <height>801</height>
+           <width>931</width>
+           <height>821</height>
           </rect>
          </property>
          <property name="currentIndex">
-          <number>3</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="parla_ora">
           <widget class="QFrame" name="parla_ora_frame">
@@ -516,8 +516,8 @@
           <widget class="QFrame" name="seguiti_frame">
            <property name="geometry">
             <rect>
-             <x>0</x>
-             <y>60</y>
+             <x>10</x>
+             <y>70</y>
              <width>911</width>
              <height>741</height>
             </rect>
@@ -528,16 +528,305 @@
            <property name="frameShadow">
             <enum>QFrame::Raised</enum>
            </property>
+           <widget class="QPushButton" name="cerca_btn">
+            <property name="geometry">
+             <rect>
+              <x>220</x>
+              <y>70</y>
+              <width>91</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gabriola</family>
+              <pointsize>18</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>CERCA</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="ricerca_utente">
+            <property name="geometry">
+             <rect>
+              <x>20</x>
+              <y>20</y>
+              <width>291</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gabriola</family>
+              <pointsize>18</pointsize>
+             </font>
+            </property>
+            <property name="frame">
+             <bool>false</bool>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="check_seguiti">
+            <property name="geometry">
+             <rect>
+              <x>20</x>
+              <y>70</y>
+              <width>151</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gabriola</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>SOLO UTENTI SEGUITI</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QTableWidget" name="table_utenti">
+            <property name="geometry">
+             <rect>
+              <x>20</x>
+              <y>130</y>
+              <width>292</width>
+              <height>591</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gabriola</family>
+              <pointsize>20</pointsize>
+             </font>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
+            </property>
+            <property name="showGrid">
+             <bool>true</bool>
+            </property>
+            <property name="cornerButtonEnabled">
+             <bool>false</bool>
+            </property>
+            <attribute name="horizontalHeaderVisible">
+             <bool>false</bool>
+            </attribute>
+            <attribute name="horizontalHeaderHighlightSections">
+             <bool>false</bool>
+            </attribute>
+            <attribute name="verticalHeaderVisible">
+             <bool>false</bool>
+            </attribute>
+            <attribute name="verticalHeaderHighlightSections">
+             <bool>false</bool>
+            </attribute>
+            <column>
+             <property name="text">
+              <string/>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string/>
+             </property>
+            </column>
+           </widget>
+           <widget class="QLineEdit" name="title_info_utenti">
+            <property name="geometry">
+             <rect>
+              <x>370</x>
+              <y>20</y>
+              <width>521</width>
+              <height>51</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gabriola</family>
+              <pointsize>20</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>ArrowCursor</cursorShape>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
+            </property>
+            <property name="text">
+             <string>      INFORMAZIONI UTENTE</string>
+            </property>
+            <property name="frame">
+             <bool>false</bool>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="title_msg_utenti">
+            <property name="geometry">
+             <rect>
+              <x>370</x>
+              <y>320</y>
+              <width>521</width>
+              <height>51</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gabriola</family>
+              <pointsize>20</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>ArrowCursor</cursorShape>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
+            </property>
+            <property name="text">
+             <string>MESSAGGI UTENTE</string>
+            </property>
+            <property name="frame">
+             <bool>false</bool>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QTableWidget" name="table_utenti_info">
+            <property name="geometry">
+             <rect>
+              <x>370</x>
+              <y>80</y>
+              <width>521</width>
+              <height>221</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gabriola</family>
+              <pointsize>20</pointsize>
+             </font>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
+            </property>
+            <property name="showGrid">
+             <bool>false</bool>
+            </property>
+            <property name="cornerButtonEnabled">
+             <bool>false</bool>
+            </property>
+            <attribute name="horizontalHeaderVisible">
+             <bool>false</bool>
+            </attribute>
+            <attribute name="horizontalHeaderHighlightSections">
+             <bool>false</bool>
+            </attribute>
+            <attribute name="verticalHeaderVisible">
+             <bool>false</bool>
+            </attribute>
+            <attribute name="verticalHeaderHighlightSections">
+             <bool>false</bool>
+            </attribute>
+            <column>
+             <property name="text">
+              <string/>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string/>
+             </property>
+            </column>
+           </widget>
+           <widget class="QPushButton" name="follow_btn">
+            <property name="geometry">
+             <rect>
+              <x>680</x>
+              <y>30</y>
+              <width>191</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gabriola</family>
+              <pointsize>16</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QListWidget" name="utente_msg_list">
+            <property name="geometry">
+             <rect>
+              <x>370</x>
+              <y>380</y>
+              <width>521</width>
+              <height>341</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gabriola</family>
+              <pointsize>20</pointsize>
+             </font>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::ClickFocus</enum>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::PreventContextMenu</enum>
+            </property>
+            <property name="editTriggers">
+             <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+            </property>
+            <property name="isWrapping" stdset="0">
+             <bool>false</bool>
+            </property>
+            <property name="resizeMode">
+             <enum>QListView::Fixed</enum>
+            </property>
+            <property name="layoutMode">
+             <enum>QListView::SinglePass</enum>
+            </property>
+            <property name="gridSize">
+             <size>
+              <width>392</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="uniformItemSizes">
+             <bool>false</bool>
+            </property>
+            <property name="batchSize">
+             <number>100</number>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
           </widget>
          </widget>
          <widget class="QWidget" name="bacheca">
           <widget class="QFrame" name="bacheca_frame">
            <property name="geometry">
             <rect>
-             <x>0</x>
-             <y>60</y>
+             <x>10</x>
+             <y>70</y>
              <width>911</width>
-             <height>741</height>
+             <height>751</height>
             </rect>
            </property>
            <property name="frameShape">
@@ -546,14 +835,127 @@
            <property name="frameShadow">
             <enum>QFrame::Raised</enum>
            </property>
-           <widget class="QListWidget" name="listWidget_2">
+           <widget class="QPushButton" name="post_btn">
             <property name="geometry">
              <rect>
-              <x>175</x>
-              <y>21</y>
-              <width>561</width>
-              <height>701</height>
+              <x>640</x>
+              <y>660</y>
+              <width>191</width>
+              <height>51</height>
              </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gabriola</family>
+              <pointsize>20</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>PUBBLICA</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="post_msg">
+            <property name="geometry">
+             <rect>
+              <x>80</x>
+              <y>660</y>
+              <width>541</width>
+              <height>51</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gabriola</family>
+              <pointsize>18</pointsize>
+             </font>
+            </property>
+            <property name="frame">
+             <bool>false</bool>
+            </property>
+           </widget>
+           <widget class="QTableWidget" name="table_bacheca">
+            <property name="geometry">
+             <rect>
+              <x>20</x>
+              <y>70</y>
+              <width>871</width>
+              <height>571</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gabriola</family>
+              <pointsize>18</pointsize>
+             </font>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
+            </property>
+            <property name="editTriggers">
+             <set>QAbstractItemView::NoEditTriggers</set>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="showGrid">
+             <bool>true</bool>
+            </property>
+            <property name="cornerButtonEnabled">
+             <bool>false</bool>
+            </property>
+            <attribute name="horizontalHeaderVisible">
+             <bool>false</bool>
+            </attribute>
+            <attribute name="horizontalHeaderHighlightSections">
+             <bool>false</bool>
+            </attribute>
+            <attribute name="horizontalHeaderStretchLastSection">
+             <bool>true</bool>
+            </attribute>
+            <attribute name="verticalHeaderVisible">
+             <bool>false</bool>
+            </attribute>
+            <attribute name="verticalHeaderHighlightSections">
+             <bool>false</bool>
+            </attribute>
+            <column>
+             <property name="text">
+              <string/>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string/>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string/>
+             </property>
+            </column>
+           </widget>
+           <widget class="QLabel" name="max_char">
+            <property name="geometry">
+             <rect>
+              <x>680</x>
+              <y>711</y>
+              <width>121</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gabriola</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>(Max 100 caratteri)</string>
             </property>
            </widget>
           </widget>
@@ -562,10 +964,10 @@
           <widget class="QFrame" name="profilo_frame">
            <property name="geometry">
             <rect>
-             <x>-1</x>
-             <y>59</y>
+             <x>9</x>
+             <y>69</y>
              <width>911</width>
-             <height>741</height>
+             <height>751</height>
             </rect>
            </property>
            <property name="frameShape">
@@ -574,21 +976,60 @@
            <property name="frameShadow">
             <enum>QFrame::Raised</enum>
            </property>
-           <widget class="QListWidget" name="listWidget">
+           <widget class="QListWidget" name="personal_msg">
             <property name="geometry">
              <rect>
-              <x>485</x>
-              <y>31</y>
-              <width>401</width>
-              <height>571</height>
+              <x>480</x>
+              <y>80</y>
+              <width>411</width>
+              <height>591</height>
              </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gabriola</family>
+              <pointsize>20</pointsize>
+             </font>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::ClickFocus</enum>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::PreventContextMenu</enum>
+            </property>
+            <property name="editTriggers">
+             <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+            </property>
+            <property name="isWrapping" stdset="0">
+             <bool>false</bool>
+            </property>
+            <property name="resizeMode">
+             <enum>QListView::Fixed</enum>
+            </property>
+            <property name="layoutMode">
+             <enum>QListView::SinglePass</enum>
+            </property>
+            <property name="gridSize">
+             <size>
+              <width>392</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="uniformItemSizes">
+             <bool>false</bool>
+            </property>
+            <property name="batchSize">
+             <number>100</number>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
             </property>
            </widget>
            <widget class="QPushButton" name="mod_data_btn">
             <property name="geometry">
              <rect>
-              <x>160</x>
-              <y>100</y>
+              <x>140</x>
+              <y>80</y>
               <width>161</width>
               <height>51</height>
              </rect>
@@ -608,9 +1049,9 @@
            <widget class="QLineEdit" name="data_mod">
             <property name="geometry">
              <rect>
-              <x>250</x>
-              <y>30</y>
-              <width>181</width>
+              <x>230</x>
+              <y>20</y>
+              <width>201</width>
               <height>51</height>
              </rect>
             </property>
@@ -636,9 +1077,9 @@
            <widget class="QComboBox" name="combo_mod_dati">
             <property name="geometry">
              <rect>
-              <x>50</x>
-              <y>30</y>
-              <width>181</width>
+              <x>20</x>
+              <y>20</y>
+              <width>201</width>
               <height>51</height>
              </rect>
             </property>
@@ -646,7 +1087,12 @@
              <font>
               <family>Gabriola</family>
               <pointsize>18</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
              </font>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
             </property>
             <item>
              <property name="text">
@@ -685,12 +1131,15 @@
             </item>
            </widget>
            <widget class="QListWidget" name="dati_personali">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
             <property name="geometry">
              <rect>
-              <x>40</x>
-              <y>180</y>
-              <width>401</width>
-              <height>481</height>
+              <x>20</x>
+              <y>150</y>
+              <width>411</width>
+              <height>581</height>
              </rect>
             </property>
             <property name="font">
@@ -701,8 +1150,71 @@
               <bold>false</bold>
              </font>
             </property>
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
+            </property>
             <property name="editTriggers">
              <set>QAbstractItemView::NoEditTriggers</set>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="personal_msg_title">
+            <property name="geometry">
+             <rect>
+              <x>480</x>
+              <y>20</y>
+              <width>411</width>
+              <height>51</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gabriola</family>
+              <pointsize>20</pointsize>
+              <weight>75</weight>
+              <italic>false</italic>
+              <bold>true</bold>
+              <underline>false</underline>
+              <strikeout>false</strikeout>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>ArrowCursor</cursorShape>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
+            </property>
+            <property name="acceptDrops">
+             <bool>true</bool>
+            </property>
+            <property name="text">
+             <string>MESSAGGI PUBBLICATI</string>
+            </property>
+            <property name="frame">
+             <bool>false</bool>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="el_sel_msg">
+            <property name="geometry">
+             <rect>
+              <x>480</x>
+              <y>680</y>
+              <width>411</width>
+              <height>51</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gabriola</family>
+              <pointsize>18</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>ELIMINA MESSAGGIO SELEZIONATO</string>
             </property>
            </widget>
           </widget>
@@ -728,7 +1240,7 @@
            <rect>
             <x>570</x>
             <y>10</y>
-            <width>171</width>
+            <width>161</width>
             <height>61</height>
            </rect>
           </property>
@@ -744,12 +1256,12 @@
            <string>PARLA ORA</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_4">
+         <widget class="QPushButton" name="logout_btn">
           <property name="geometry">
            <rect>
-            <x>740</x>
+            <x>750</x>
             <y>10</y>
-            <width>171</width>
+            <width>161</width>
             <height>61</height>
            </rect>
           </property>
@@ -765,7 +1277,7 @@
            <string>ESCI</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="bacheca_btn">
           <property name="geometry">
            <rect>
             <x>370</x>
@@ -786,12 +1298,12 @@
            <string>BACHECA</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="profilo_dati">
+         <widget class="QPushButton" name="profilo_dati_btn">
           <property name="geometry">
            <rect>
             <x>0</x>
             <y>10</y>
-            <width>171</width>
+            <width>161</width>
             <height>61</height>
            </rect>
           </property>
@@ -807,12 +1319,12 @@
            <string>PROFILO</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_5">
+         <widget class="QPushButton" name="seguiti_btn">
           <property name="geometry">
            <rect>
-            <x>170</x>
+            <x>180</x>
             <y>10</y>
-            <width>171</width>
+            <width>161</width>
             <height>61</height>
            </rect>
           </property>
@@ -826,7 +1338,7 @@
            </font>
           </property>
           <property name="text">
-           <string>SEGUITI</string>
+           <string>UTENTI</string>
           </property>
          </widget>
         </widget>

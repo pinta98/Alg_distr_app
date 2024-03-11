@@ -2,13 +2,13 @@ from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtGui import QResizeEvent
 from PyQt5.QtWidgets import QDialog, QApplication, QMessageBox, QPushButton, QWidget
 import Pyro5.client
+import Pyro5.core
+import Pyro5.api
 import sys
 
 from login import Ui_MainWindow
 from client_style import login_style, register_style
 import dashboard
-
-
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):        
@@ -73,7 +73,6 @@ def user_register(self):
 
 def back_to_login(self):
     self.ui.stackedWidget.setCurrentWidget(self.ui.login)
-
     
 
 
