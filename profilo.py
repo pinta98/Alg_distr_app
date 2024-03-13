@@ -1,16 +1,12 @@
 import Pyro5.client
 from PyQt5.QtWidgets import QMessageBox
-import client_style
 from datetime import datetime
 
 account_data = None
 
-def profilo_utente(self, username):
+def user_profile(self, username):
     self.ui.dash.setCurrentWidget(self.ui.profilo)
     set_personal_data(self, username)
-    #self.ui.profilo_dati_btn.clicked.connect(lambda: set_personal_data(self, username))
-    #self.ui.mod_data_btn.clicked.connect(lambda: set_mod_data(self, username))
-    #self.ui.el_sel_msg.clicked.connect(lambda: del_msg(self, username))
      
 def show_popup_msg_delete(self):
         msg = QMessageBox() 
@@ -22,7 +18,6 @@ def show_popup_msg_delete(self):
             return True 
 
 def set_personal_data(self, username):
-    client_style.profilo_style(self) 
     global account_data
     self.ui.dati_personali.clear()
     self.ui.personal_msg.clear()
@@ -36,11 +31,11 @@ def set_personal_data(self, username):
     self.ui.dati_personali.addItem("SESSO:  " + data["sesso"])
     self.ui.dati_personali.addItem("NAZIONALITA :  " + data["nazionalita"])
     self.ui.dati_personali.addItem("CITTA :  " + data["citta"])
-    self.ui.dati_personali.addItem("TEMPO LIBERO:  " + data["tempo libero"])
-    self.ui.dati_personali.addItem("DATA D'ISCRIZIONE:  " + data["iscrizione"])
+    self.ui.dati_personali.addItem("HOBBY:  " + data["tempo libero"])
+    self.ui.dati_personali.addItem("ISCRIZIONE:  " + str(data["iscrizione"]))  
     self.ui.dati_personali.addItem("SEGUITI:  " + str(data["seguiti"]))
-    self.ui.dati_personali.addItem("SEGUACI:  " + str(data["seguaci"]))
-    
+    self.ui.dati_personali.addItem("SEGUACI:  " + str(data["seguaci"]))    
+    self.ui.personal_msg_title.setText("MESSAGGI PUBBLICATI: " + str(len(data["messaggi"])))
     msg_to_order = []
     for msg in data["messaggi"]:
         msg_to_order.append(msg)
@@ -48,13 +43,31 @@ def set_personal_data(self, username):
     list_ordered = sorted(msg_to_order, key=lambda x: datetime.strptime(x['data'], '%Y-%m-%d %H:%M:%S'), reverse = True)
 
     for i in list_ordered:
-        self.ui.personal_msg.addItem(i["testo"] + "\n" + str(i["data"]))     
+        time = datetime.strptime(i["data"], '%Y-%m-%d %H:%M:%S')        
+        self.ui.personal_msg.addItem(i["testo"] + "\n" + str(time.strftime("%H:%M  %d-%m-%Y")))     
     
 def set_mod_data(self, username):
     data_field = self.ui.combo_mod_dati.currentText().lower()
     data = self.ui.data_mod.text() 
+    time = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
     reg = Pyro5.client.Proxy("PYRONAME:mythingy")
-    success = reg.mod_personal_data([username, data_field, data])
+    success = reg.mod_personal_data([username, data_field, data, time])
+
+    if data_field == "nome":
+        self.ui.dati_personali.item(1).setText("NOME:  " +data)
+    if data_field == "cognome":
+        self.ui.dati_personali.item(2).setText("COGNOME:  " +data)
+    if data_field == "eta":
+        self.ui.dati_personali.item(3).setText("ETA:  " +data)
+    if data_field == "sesso":
+        self.ui.dati_personali.item(4).setText("SESSO:  " +data)
+    if data_field == "nazionalita":
+        self.ui.dati_personali.item(5).setText("NAZIONALITA:  " +data)
+    if data_field == "citta":
+        self.ui.dati_personali.item(6).setText("CITTA:  " +data)
+    if data_field == "hobby":
+        self.ui.dati_personali.item(7).setText("HOBBY:  " +data)
+
     if(success):
         msg = QMessageBox() 
         msg.setIcon(QMessageBox.Information)
@@ -69,8 +82,6 @@ def set_mod_data(self, username):
         msg.setStandardButtons(QMessageBox.Ok)
         msg.setStyleSheet("color:black;background:white") 
         x = msg.exec_()
-
-    set_personal_data(self, username)
 
 def del_msg(self, username):   
     global account_data
@@ -97,15 +108,14 @@ def del_msg(self, username):
                 msg.setStandardButtons(QMessageBox.Ok)
                 msg.setStyleSheet("color:black;background:white") 
                 x = msg.exec_()
-                set_personal_data(self, username)
+                self.ui.personal_msg.takeItem(current_row)
             else:
                 msg = QMessageBox() 
                 msg.setIcon(QMessageBox.Information)
                 msg.setText("Riprova, qualcosa è andato storto")
                 msg.setStandardButtons(QMessageBox.Ok)
                 msg.setStyleSheet("color:black;background:white") 
-                x = msg.exec_()
-                set_personal_data(self, username)   
+                x = msg.exec_()  
     else:
         msg = QMessageBox() 
         msg.setIcon(QMessageBox.Information)

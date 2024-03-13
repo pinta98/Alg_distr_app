@@ -1,21 +1,14 @@
 import Pyro5.client
-from PyQt5.QtWidgets import QMessageBox
-import client_style
 from datetime import datetime
 from PyQt5 import QtWidgets
+from PyQt5.QtGui import QFont
 
 def set_bacheca(self, username):
     self.ui.stackedWidget.setCurrentWidget(self.ui.dashboard)
     self.ui.dash.setCurrentWidget(self.ui.bacheca)  
-    client_style.bacheca_syle(self)    
-    set_msg(self, username)
-
-def reset_bacheca(self, username):
-    self.ui.dash.setCurrentWidget(self.ui.bacheca)  
     set_msg(self, username)
 
 def set_msg(self, username):
-    client_style.bacheca_syle(self)
     self.ui.table_bacheca.clear() 
     self.ui.post_msg.clear()   
     reg = Pyro5.client.Proxy("PYRONAME:mythingy")
@@ -30,10 +23,19 @@ def set_msg(self, username):
    
     self.ui.table_bacheca.setRowCount(len(list_ordered)) 
     row=0
-    for msg in list_ordered:  
-        self.ui.table_bacheca.setItem(row, 0, QtWidgets.QTableWidgetItem(msg["user"]))   
-        self.ui.table_bacheca.setItem(row, 1, QtWidgets.QTableWidgetItem(msg["testo"])) 
-        self.ui.table_bacheca.setItem(row, 2, QtWidgets.QTableWidgetItem(msg["data"]))  
+    for msg in list_ordered: 
+        if(msg["user"] == username): 
+            font = QFont()
+            font.setBold(True)
+            self.ui.table_bacheca.setItem(row, 0, QtWidgets.QTableWidgetItem(msg["user"])) 
+            self.ui.table_bacheca.item(row, 0).setFont(font)            
+            self.ui.table_bacheca.setItem(row, 1, QtWidgets.QTableWidgetItem(msg["testo"])) 
+            #self.ui.table_bacheca.item(row, 1).setFont(font)                   
+        else:
+            self.ui.table_bacheca.setItem(row, 0, QtWidgets.QTableWidgetItem(msg["user"])) 
+            self.ui.table_bacheca.setItem(row, 1, QtWidgets.QTableWidgetItem(msg["testo"]))  
+        time = datetime.strptime(msg["data"], '%Y-%m-%d %H:%M:%S')    
+        self.ui.table_bacheca.setItem(row, 2, QtWidgets.QTableWidgetItem(str(time.strftime("%H:%M  %d-%m-%Y"))))  
 
         row = row + 1                                                                           
    

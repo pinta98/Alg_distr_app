@@ -34,7 +34,20 @@ class Thing(object):
         else:
             new_user = {
                 "username": arg[0],
-                "password": arg[1]
+                "password": arg[1],
+                "nome":"",
+                "cognome":"",
+                "eta":"",
+                "sesso":"",
+                "nazionalita":"",
+                "citta":"",
+                "tempo libero":"",
+                "iscrizione": arg[2],
+                "seguaci": 0,
+                "seguiti":0, 
+                "messaggi":[],
+                "utenti_seguiti":[],
+                "notifiche":[]
             }
             try:
                 user_collection.insert_one(new_user)
@@ -49,9 +62,13 @@ class Thing(object):
     
     def mod_personal_data(self, arg):     
         try:
+            new_notifica = {"testo":"Hai modificato il tuo profilo", "data":arg[3], "show": False}
             user_collection.update_one({"username":arg[0]}, 
                                        {"$set": {
                                             arg[1]: arg[2]
+                                        },
+                                        "$push": {
+                                            "notifiche": new_notifica
                                         }}) 
             return True
         except Exception as e:
@@ -72,9 +89,11 @@ class Thing(object):
 
     def un_follow(self, arg):
         if(arg[2]):
-            try:         
-                user_collection.update_one( {"username": arg[0]}, {"$inc":{"seguiti":+1}, "$push": {"utenti_seguiti": arg[1]}})
-                user_collection.update_one( {"username": arg[1]}, {"$inc":{"seguaci":+1}})
+            try:        
+                new_notifica = {"testo":"Hai seguito "+arg[1], "data":arg[3], "show": False} 
+                user_collection.update_one( {"username": arg[0]}, {"$inc":{"seguiti":+1}, "$push": {"utenti_seguiti": arg[1], "notifiche": new_notifica}})
+                new_notifica = {"testo":arg[0] + " ti ha seguito", "data":arg[3], "show": True, "utente": arg[0]} 
+                user_collection.update_one( {"username": arg[1]}, {"$inc":{"seguaci":+1}, "$push": {"notifiche": new_notifica}})
 
                 data = user_collection.find_one({"username":arg[1]}) 
                 
@@ -83,8 +102,9 @@ class Thing(object):
                 print("An exception occurred ::", e)
                 return None
         else:
-            try:           
-                user_collection.update_one( {"username": arg[0]}, {"$inc":{"seguiti":-1}, '$pull': {'utenti_seguiti': arg[1]}})
+            try:  
+                #new_notifica = {"testo":"Non segui più "+arg[1], "data":arg[3], "show": False}          
+                user_collection.update_one( {"username": arg[0]}, {"$inc":{"seguiti":-1}, '$pull': {'utenti_seguiti': arg[1]}})#, "$push": {"notifiche": new_notifica}})
                 user_collection.update_one( {"username": arg[1]}, {"$inc":{"seguaci":-1}})
                 return True
             except Exception as e:
@@ -102,15 +122,10 @@ class Thing(object):
         return msg
 
     def publish_msg(self, arg):
-        print(arg[0])
-        print(arg[1])
-        print(arg[2])
-
         user_collection.update_one({"username":arg[0]}, 
                                        {"$push": {"messaggi": {"testo": arg[1], "data": arg[2], "user": arg[0]}}
                                             
                                         }) 
-        print("_________")
 
 '''
 # ------ normal code ------

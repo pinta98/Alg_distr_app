@@ -82,9 +82,9 @@
           <property name="geometry">
            <rect>
             <x>120</x>
-            <y>60</y>
+            <y>90</y>
             <width>151</width>
-            <height>61</height>
+            <height>51</height>
            </rect>
           </property>
           <property name="font">
@@ -102,18 +102,21 @@
          <widget class="QLineEdit" name="username">
           <property name="geometry">
            <rect>
-            <x>100</x>
-            <y>110</y>
-            <width>191</width>
+            <x>80</x>
+            <y>130</y>
+            <width>231</width>
             <height>41</height>
            </rect>
           </property>
           <property name="font">
            <font>
             <family>Gabriola</family>
-            <pointsize>18</pointsize>
+            <pointsize>20</pointsize>
             <kerning>true</kerning>
            </font>
+          </property>
+          <property name="maxLength">
+           <number>10</number>
           </property>
           <property name="frame">
            <bool>false</bool>
@@ -126,7 +129,7 @@
           <property name="geometry">
            <rect>
             <x>140</x>
-            <y>160</y>
+            <y>180</y>
             <width>121</width>
             <height>51</height>
            </rect>
@@ -146,18 +149,21 @@
          <widget class="QLineEdit" name="password">
           <property name="geometry">
            <rect>
-            <x>100</x>
-            <y>200</y>
-            <width>191</width>
+            <x>80</x>
+            <y>220</y>
+            <width>231</width>
             <height>41</height>
            </rect>
           </property>
           <property name="font">
            <font>
             <family>Gabriola</family>
-            <pointsize>18</pointsize>
+            <pointsize>16</pointsize>
             <kerning>true</kerning>
            </font>
+          </property>
+          <property name="maxLength">
+           <number>10</number>
           </property>
           <property name="frame">
            <bool>false</bool>
@@ -170,7 +176,7 @@
           <property name="geometry">
            <rect>
             <x>100</x>
-            <y>310</y>
+            <y>320</y>
             <width>191</width>
             <height>41</height>
            </rect>
@@ -191,7 +197,7 @@
           <property name="geometry">
            <rect>
             <x>100</x>
-            <y>400</y>
+            <y>410</y>
             <width>191</width>
             <height>41</height>
            </rect>
@@ -212,7 +218,7 @@
           <property name="geometry">
            <rect>
             <x>60</x>
-            <y>260</y>
+            <y>270</y>
             <width>271</width>
             <height>41</height>
            </rect>
@@ -245,36 +251,55 @@
          <widget class="QLabel" name="title_log">
           <property name="geometry">
            <rect>
-            <x>50</x>
-            <y>9</y>
-            <width>301</width>
+            <x>10</x>
+            <y>20</y>
+            <width>371</width>
             <height>41</height>
            </rect>
           </property>
           <property name="font">
            <font>
             <family>Gabriola</family>
-            <pointsize>24</pointsize>
+            <pointsize>28</pointsize>
             <weight>75</weight>
             <bold>true</bold>
+            <underline>false</underline>
            </font>
           </property>
           <property name="text">
            <string>ACCEDI AL TUO PROFILO</string>
           </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </widget>
-        <widget class="QLabel" name="label_3">
+        <widget class="QLabel" name="label">
          <property name="geometry">
           <rect>
-           <x>570</x>
+           <x>320</x>
            <y>60</y>
-           <width>171</width>
-           <height>20</height>
+           <width>611</width>
+           <height>61</height>
           </rect>
          </property>
+         <property name="font">
+          <font>
+           <family>Gabriola</family>
+           <pointsize>50</pointsize>
+           <weight>75</weight>
+           <italic>false</italic>
+           <bold>true</bold>
+           <underline>false</underline>
+           <strikeout>false</strikeout>
+           <kerning>true</kerning>
+          </font>
+         </property>
          <property name="text">
-          <string>NOME SOCIAL</string>
+          <string>DISTRIBUTED  SOCIAL</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </widget>
@@ -298,9 +323,9 @@
           <property name="geometry">
            <rect>
             <x>70</x>
-            <y>70</y>
+            <y>90</y>
             <width>261</width>
-            <height>50</height>
+            <height>51</height>
            </rect>
           </property>
           <property name="font">
@@ -318,10 +343,10 @@
          <widget class="QLabel" name="label_pass_register">
           <property name="geometry">
            <rect>
-            <x>50</x>
-            <y>160</y>
-            <width>301</width>
-            <height>50</height>
+            <x>40</x>
+            <y>180</y>
+            <width>311</width>
+            <height>51</height>
            </rect>
           </property>
           <property name="font">
@@ -333,14 +358,17 @@
            </font>
           </property>
           <property name="text">
-           <string>INSERISCI NUOVA PASSWORD</string>
+           <string>INSERISCI UNA PASSWORD</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
          <widget class="QPushButton" name="login_back_btn">
           <property name="geometry">
            <rect>
             <x>100</x>
-            <y>400</y>
+            <y>410</y>
             <width>191</width>
             <height>41</height>
            </rect>
@@ -360,18 +388,21 @@
          <widget class="QLineEdit" name="username_reg">
           <property name="geometry">
            <rect>
-            <x>100</x>
-            <y>110</y>
-            <width>191</width>
+            <x>80</x>
+            <y>130</y>
+            <width>231</width>
             <height>41</height>
            </rect>
           </property>
           <property name="font">
            <font>
             <family>Gabriola</family>
-            <pointsize>18</pointsize>
+            <pointsize>20</pointsize>
             <kerning>true</kerning>
            </font>
+          </property>
+          <property name="maxLength">
+           <number>10</number>
           </property>
           <property name="frame">
            <bool>false</bool>
@@ -384,7 +415,7 @@
           <property name="geometry">
            <rect>
             <x>56</x>
-            <y>260</y>
+            <y>270</y>
             <width>271</width>
             <height>41</height>
            </rect>
@@ -417,18 +448,21 @@
          <widget class="QLineEdit" name="password_reg">
           <property name="geometry">
            <rect>
-            <x>100</x>
-            <y>200</y>
-            <width>191</width>
+            <x>80</x>
+            <y>220</y>
+            <width>231</width>
             <height>41</height>
            </rect>
           </property>
           <property name="font">
            <font>
             <family>Gabriola</family>
-            <pointsize>18</pointsize>
+            <pointsize>16</pointsize>
             <kerning>true</kerning>
            </font>
+          </property>
+          <property name="maxLength">
+           <number>10</number>
           </property>
           <property name="frame">
            <bool>false</bool>
@@ -441,7 +475,7 @@
           <property name="geometry">
            <rect>
             <x>100</x>
-            <y>310</y>
+            <y>320</y>
             <width>191</width>
             <height>41</height>
            </rect>
@@ -461,24 +495,78 @@
          <widget class="QLabel" name="title_reg">
           <property name="geometry">
            <rect>
-            <x>20</x>
-            <y>10</y>
-            <width>361</width>
+            <x>10</x>
+            <y>20</y>
+            <width>371</width>
             <height>41</height>
            </rect>
           </property>
           <property name="font">
            <font>
             <family>Gabriola</family>
-            <pointsize>24</pointsize>
+            <pointsize>28</pointsize>
             <weight>75</weight>
             <bold>true</bold>
+            <underline>false</underline>
            </font>
           </property>
           <property name="text">
-           <string>CREA IL TUO NUOVO PROFILO</string>
+           <string>CREA UN NUOVO PROFILO</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
+         <widget class="QLabel" name="min_max">
+          <property name="geometry">
+           <rect>
+            <x>100</x>
+            <y>370</y>
+            <width>191</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Gabriola</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>(Min 4 - Max 10 caratteri)</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QLabel" name="label_2">
+         <property name="geometry">
+          <rect>
+           <x>320</x>
+           <y>60</y>
+           <width>611</width>
+           <height>61</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Gabriola</family>
+           <pointsize>50</pointsize>
+           <weight>75</weight>
+           <italic>false</italic>
+           <bold>true</bold>
+           <underline>false</underline>
+           <strikeout>false</strikeout>
+           <kerning>true</kerning>
+          </font>
+         </property>
+         <property name="text">
+          <string>DISTRIBUTED  SOCIAL</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
         </widget>
        </widget>
        <widget class="QWidget" name="dashboard">
@@ -492,16 +580,16 @@
           </rect>
          </property>
          <property name="currentIndex">
-          <number>2</number>
+          <number>1</number>
          </property>
-         <widget class="QWidget" name="parla_ora">
-          <widget class="QFrame" name="parla_ora_frame">
+         <widget class="QWidget" name="notifiche">
+          <widget class="QFrame" name="notifiche_frame">
            <property name="geometry">
             <rect>
-             <x>0</x>
+             <x>10</x>
              <y>70</y>
              <width>911</width>
-             <height>731</height>
+             <height>751</height>
             </rect>
            </property>
            <property name="frameShape">
@@ -510,6 +598,151 @@
            <property name="frameShadow">
             <enum>QFrame::Raised</enum>
            </property>
+           <widget class="QLineEdit" name="title_info_utenti_eventi">
+            <property name="geometry">
+             <rect>
+              <x>570</x>
+              <y>20</y>
+              <width>321</width>
+              <height>51</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gabriola</family>
+              <pointsize>20</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>ArrowCursor</cursorShape>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
+            </property>
+            <property name="text">
+             <string>INFORMAZIONI UTENTE</string>
+            </property>
+            <property name="frame">
+             <bool>false</bool>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QTableWidget" name="table_eventi">
+            <property name="geometry">
+             <rect>
+              <x>20</x>
+              <y>80</y>
+              <width>531</width>
+              <height>651</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gabriola</family>
+              <pointsize>20</pointsize>
+             </font>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
+            </property>
+            <property name="showGrid">
+             <bool>true</bool>
+            </property>
+            <property name="cornerButtonEnabled">
+             <bool>false</bool>
+            </property>
+            <attribute name="horizontalHeaderVisible">
+             <bool>false</bool>
+            </attribute>
+            <attribute name="horizontalHeaderHighlightSections">
+             <bool>false</bool>
+            </attribute>
+            <attribute name="verticalHeaderVisible">
+             <bool>false</bool>
+            </attribute>
+            <attribute name="verticalHeaderHighlightSections">
+             <bool>false</bool>
+            </attribute>
+            <column>
+             <property name="text">
+              <string/>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string/>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string/>
+             </property>
+            </column>
+           </widget>
+           <widget class="QListWidget" name="dati_personali_eventi">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>570</x>
+              <y>80</y>
+              <width>321</width>
+              <height>651</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gabriola</family>
+              <pointsize>20</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
+            </property>
+            <property name="editTriggers">
+             <set>QAbstractItemView::NoEditTriggers</set>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="title_eventi">
+            <property name="geometry">
+             <rect>
+              <x>20</x>
+              <y>20</y>
+              <width>531</width>
+              <height>51</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gabriola</family>
+              <pointsize>20</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>ArrowCursor</cursorShape>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
+            </property>
+            <property name="text">
+             <string>STORICO EVENTI</string>
+            </property>
+            <property name="frame">
+             <bool>false</bool>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
           </widget>
          </widget>
          <widget class="QWidget" name="seguiti">
@@ -531,7 +764,7 @@
            <widget class="QPushButton" name="cerca_btn">
             <property name="geometry">
              <rect>
-              <x>220</x>
+              <x>210</x>
               <y>70</y>
               <width>91</width>
               <height>41</height>
@@ -554,7 +787,7 @@
              <rect>
               <x>20</x>
               <y>20</y>
-              <width>291</width>
+              <width>281</width>
               <height>41</height>
              </rect>
             </property>
@@ -563,6 +796,9 @@
               <family>Gabriola</family>
               <pointsize>18</pointsize>
              </font>
+            </property>
+            <property name="maxLength">
+             <number>15</number>
             </property>
             <property name="frame">
              <bool>false</bool>
@@ -595,7 +831,7 @@
              <rect>
               <x>20</x>
               <y>130</y>
-              <width>292</width>
+              <width>281</width>
               <height>591</height>
              </rect>
             </property>
@@ -640,9 +876,9 @@
            <widget class="QLineEdit" name="title_info_utenti">
             <property name="geometry">
              <rect>
-              <x>370</x>
+              <x>320</x>
               <y>20</y>
-              <width>521</width>
+              <width>571</width>
               <height>51</height>
              </rect>
             </property>
@@ -661,7 +897,7 @@
              <enum>Qt::NoFocus</enum>
             </property>
             <property name="text">
-             <string>      INFORMAZIONI UTENTE</string>
+             <string>           INFORMAZIONI UTENTE</string>
             </property>
             <property name="frame">
              <bool>false</bool>
@@ -670,9 +906,9 @@
            <widget class="QLineEdit" name="title_msg_utenti">
             <property name="geometry">
              <rect>
-              <x>370</x>
-              <y>320</y>
-              <width>521</width>
+              <x>320</x>
+              <y>280</y>
+              <width>571</width>
               <height>51</height>
              </rect>
             </property>
@@ -703,10 +939,10 @@
            <widget class="QTableWidget" name="table_utenti_info">
             <property name="geometry">
              <rect>
-              <x>370</x>
+              <x>320</x>
               <y>80</y>
-              <width>521</width>
-              <height>221</height>
+              <width>571</width>
+              <height>191</height>
              </rect>
             </property>
             <property name="font">
@@ -771,16 +1007,16 @@
            <widget class="QListWidget" name="utente_msg_list">
             <property name="geometry">
              <rect>
-              <x>370</x>
-              <y>380</y>
-              <width>521</width>
-              <height>341</height>
+              <x>320</x>
+              <y>340</y>
+              <width>571</width>
+              <height>381</height>
              </rect>
             </property>
             <property name="font">
              <font>
               <family>Gabriola</family>
-              <pointsize>20</pointsize>
+              <pointsize>19</pointsize>
              </font>
             </property>
             <property name="focusPolicy">
@@ -871,6 +1107,9 @@
               <pointsize>18</pointsize>
              </font>
             </property>
+            <property name="maxLength">
+             <number>30</number>
+            </property>
             <property name="frame">
              <bool>false</bool>
             </property>
@@ -955,7 +1194,34 @@
              </font>
             </property>
             <property name="text">
-             <string>(Max 100 caratteri)</string>
+             <string>(Max 30 caratteri)</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="title_bacheca">
+            <property name="geometry">
+             <rect>
+              <x>20</x>
+              <y>10</y>
+              <width>871</width>
+              <height>51</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gabriola</family>
+              <pointsize>30</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>RESTA IN CONTATTO CON I TUOI AMICI SEGUITI</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
             </property>
            </widget>
           </widget>
@@ -979,16 +1245,16 @@
            <widget class="QListWidget" name="personal_msg">
             <property name="geometry">
              <rect>
-              <x>480</x>
+              <x>320</x>
               <y>80</y>
-              <width>411</width>
+              <width>571</width>
               <height>591</height>
              </rect>
             </property>
             <property name="font">
              <font>
               <family>Gabriola</family>
-              <pointsize>20</pointsize>
+              <pointsize>19</pointsize>
              </font>
             </property>
             <property name="focusPolicy">
@@ -1028,9 +1294,9 @@
            <widget class="QPushButton" name="mod_data_btn">
             <property name="geometry">
              <rect>
-              <x>140</x>
-              <y>80</y>
-              <width>161</width>
+              <x>200</x>
+              <y>50</y>
+              <width>101</width>
               <height>51</height>
              </rect>
             </property>
@@ -1049,9 +1315,9 @@
            <widget class="QLineEdit" name="data_mod">
             <property name="geometry">
              <rect>
-              <x>230</x>
-              <y>20</y>
-              <width>201</width>
+              <x>20</x>
+              <y>80</y>
+              <width>161</width>
               <height>51</height>
              </rect>
             </property>
@@ -1070,6 +1336,9 @@
             <property name="acceptDrops">
              <bool>true</bool>
             </property>
+            <property name="maxLength">
+             <number>15</number>
+            </property>
             <property name="frame">
              <bool>false</bool>
             </property>
@@ -1079,7 +1348,7 @@
              <rect>
               <x>20</x>
               <y>20</y>
-              <width>201</width>
+              <width>161</width>
               <height>51</height>
              </rect>
             </property>
@@ -1126,7 +1395,7 @@
             </item>
             <item>
              <property name="text">
-              <string>TEMPO LIBERO</string>
+              <string>HOBBY</string>
              </property>
             </item>
            </widget>
@@ -1138,7 +1407,7 @@
              <rect>
               <x>20</x>
               <y>150</y>
-              <width>411</width>
+              <width>281</width>
               <height>581</height>
              </rect>
             </property>
@@ -1160,9 +1429,9 @@
            <widget class="QLineEdit" name="personal_msg_title">
             <property name="geometry">
              <rect>
-              <x>480</x>
+              <x>320</x>
               <y>20</y>
-              <width>411</width>
+              <width>571</width>
               <height>51</height>
              </rect>
             </property>
@@ -1187,7 +1456,7 @@
              <bool>true</bool>
             </property>
             <property name="text">
-             <string>MESSAGGI PUBBLICATI</string>
+             <string/>
             </property>
             <property name="frame">
              <bool>false</bool>
@@ -1199,9 +1468,9 @@
            <widget class="QPushButton" name="el_sel_msg">
             <property name="geometry">
              <rect>
-              <x>480</x>
+              <x>380</x>
               <y>680</y>
-              <width>411</width>
+              <width>451</width>
               <height>51</height>
              </rect>
             </property>
@@ -1235,7 +1504,7 @@
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QPushButton" name="pushButton_2">
+         <widget class="QPushButton" name="notifiche_btn">
           <property name="geometry">
            <rect>
             <x>570</x>
@@ -1253,7 +1522,7 @@
            </font>
           </property>
           <property name="text">
-           <string>PARLA ORA</string>
+           <string>NOTIFICHE</string>
           </property>
          </widget>
          <widget class="QPushButton" name="logout_btn">
@@ -1280,9 +1549,9 @@
          <widget class="QPushButton" name="bacheca_btn">
           <property name="geometry">
            <rect>
-            <x>370</x>
+            <x>360</x>
             <y>10</y>
-            <width>171</width>
+            <width>191</width>
             <height>61</height>
            </rect>
           </property>

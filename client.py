@@ -1,27 +1,30 @@
-from PyQt5 import QtCore, QtWidgets
-from PyQt5.QtGui import QResizeEvent
-from PyQt5.QtWidgets import QDialog, QApplication, QMessageBox, QPushButton, QWidget
+from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 import Pyro5.client
 import Pyro5.core
 import Pyro5.api
 import sys
+from datetime import datetime
 
 from login import Ui_MainWindow
-from client_style import login_style, register_style
-import dashboard, bacheca, utenti, profilo, client_style
+import bacheca, utenti, profilo, client_style, eventi
 
 global active_user
 
 class MainWindow(QtWidgets.QMainWindow):
-    def __init__(self):        
+    def __init__(self):       
         super(MainWindow, self).__init__() 
         self.ui = Ui_MainWindow()               
         self.ui.setupUi(self)
         self.ui.stackedWidget.setCurrentWidget(self.ui.login) 
 
-        login_style(self) 
-        register_style(self) 
-        client_style.dashboard_style(self)
+        client_style.login_style(self) 
+        client_style.register_style(self) 
+        client_style.user_style(self)
+        client_style.events_style(self)
+        client_style.notice_board_style(self) 
+        client_style.profile_style(self) 
+        client_style.dashboard_style(self) 
 
         global active_user
         self.ui.login_btn.clicked.connect(lambda: user_login(self))
@@ -31,14 +34,15 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.logout_btn.clicked.connect(lambda: logout(self))
         self.ui.bacheca_btn.clicked.connect(lambda: bacheca.set_bacheca(self, active_user))
         self.ui.post_btn.clicked.connect(lambda: bacheca.post_msg(self, active_user))
-        self.ui.seguiti_btn.clicked.connect(lambda: utenti.set_utenti(self, active_user))
+        self.ui.seguiti_btn.clicked.connect(lambda: utenti.set_user(self, active_user))
         self.ui.cerca_btn.clicked.connect(lambda: utenti.search(self, active_user))
         self.ui.follow_btn.clicked.connect(lambda: utenti.follow(self, active_user))
         self.ui.profilo_dati_btn.clicked.connect(lambda: profilo.set_personal_data(self, active_user))
         self.ui.mod_data_btn.clicked.connect(lambda: profilo.set_mod_data(self, active_user))
         self.ui.el_sel_msg.clicked.connect(lambda: profilo.del_msg(self, active_user))
-        self.ui.profilo_dati_btn.clicked.connect(lambda: profilo.profilo_utente(self, active_user))
-        
+        self.ui.profilo_dati_btn.clicked.connect(lambda: profilo.user_profile(self, active_user))
+        self.ui.notifiche_btn.clicked.connect(lambda: eventi.set_events(self, active_user))
+
 def logout(self):
     msg = QMessageBox() 
     msg.setIcon(QMessageBox.Critical)
@@ -61,23 +65,22 @@ def user_login(self):
         success = log.login([username, password]) 
         
         if (success == "USER_OK"):
-            active_user = username
-           
+            active_user = username           
             bacheca.set_bacheca(self, active_user)
-            #dashboard.main_dashboard(self, active_user)
         else:
             self.ui.user_pass_err.setText("NOME UTENTE/PASSWORD ERRATI")        
     else: 
-        self.ui.user_pass_err.setText("NOME UTENTE/PASSWORD ERRATI")      
+        self.ui.user_pass_err.setText("NOME UTENTE/PASSWORD MANCANTI")      
 
 def new_user(self):
     username = self.ui.username_reg.text()
     password = self.ui.password_reg.text() 
     self.ui.user_pass_err_reg.setText("") 
 
-    if len(username) > 0 and len(password) > 0:
+    if len(username) > 0 and len(username) < 11 and len(password) > 0 and len(password) < 11:
+        data = datetime.utcnow().strftime("%d-%m-%Y")
         reg = Pyro5.client.Proxy("PYRONAME:mythingy")
-        success = reg.register([username, password]) 
+        success = reg.register([username, password, data]) 
         
         if (success == "DUPLICATO"):
             self.ui.user_pass_err_reg.setStyleSheet("QLineEdit { background-color: #e7e7e7; color: red;}")
@@ -85,7 +88,7 @@ def new_user(self):
         else:
             if(success == "INSERITO"):
                     self.ui.user_pass_err_reg.setStyleSheet("QLineEdit { background-color: #e7e7e7; color: green;}")
-                    self.ui.user_pass_err_reg.setText("ACCOUNT CREATO CORRETTAMENTE")
+                    self.ui.user_pass_err_reg.setText("PROFILO CREATO CORRETTAMENTE")
             else:
                 self.ui.user_pass_err_reg.setStyleSheet("QLineEdit { background-color: #e7e7e7; color: red;}")
                 self.ui.user_pass_err_reg.setText("ERRORE D'INSERIMENTO - RIPROVA")        
@@ -93,28 +96,23 @@ def new_user(self):
         self.ui.user_pass_err_reg.setStyleSheet("QLineEdit { background-color: #e7e7e7; color: red;}")
         self.ui.user_pass_err_reg.setText("INSERISCI NOME UTENTE/PASSWORD")  
 
-
-
-
 def user_register(self):
     self.ui.stackedWidget.setCurrentWidget(self.ui.registration)
 
 def back_to_login(self):
+    self.ui.username_reg.setText("")
+    self.ui.password_reg.setText("")
+    self.ui.user_pass_err_reg.setText("")
     self.ui.stackedWidget.setCurrentWidget(self.ui.login)
     
-
-
 app = QtWidgets.QApplication(sys.argv)
 mainwindow = MainWindow()
 widget = QtWidgets.QStackedWidget()
 widget.addWidget(mainwindow)
-widget.setWindowTitle("DARE UN NOME AL SOCIAL") 
+widget.setWindowTitle("DISTRIBUTED SOCIAL") 
 widget.showMaximized() 
 widget.show()
 try:
     sys.exit(app.exec_())
 except:
     print("exit")
-
-
-
